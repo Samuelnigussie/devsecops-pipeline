@@ -1,1 +1,0 @@
-const testKey = "AKIAIOSFODNN7EXAMPLE";
