@@ -23,5 +23,11 @@ if (require.main === module) {
     console.log(`Server running on port ${PORT}`);
   });
 }
+// Insecure pattern for CodeQL demonstration
+app.get('/unsafe', (req, res) => {
+  const userInput = req.query.path;
+  const content = require('fs').readFileSync(userInput, 'utf8'); // Path traversal risk
+  res.send(content);
+});
 
 module.exports = app;
